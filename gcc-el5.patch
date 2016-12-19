@@ -1,0 +1,11 @@
+--- auto/cc/gcc	2016-12-18 23:08:21.819427753 +0000
++++ auto/cc/gcc.fix	2016-12-18 23:08:59.906967640 +0000
+@@ -166,7 +166,7 @@
+ 
+ 
+ # stop on warning
+-CFLAGS="$CFLAGS -Werror"
++# CFLAGS="$CFLAGS -Werror"
+ 
+ # debug
+ CFLAGS="$CFLAGS -g"
