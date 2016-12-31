@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPO="nginx-alpn-el/nginx"
+REPO="nginx-alpn/mainline"
 
 fileList="$( find RPMS/ -type f -iname "*.rpm" )"
 
