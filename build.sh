@@ -12,6 +12,7 @@ for distro in $BUILDS; do
         nginx-$distro \
         /bin/bash \
         /docker-entrypoint.sh
+    sleep 2
     docker cp nginx-$distro:/home/builder/rpmbuild/RPMS ./
     docker kill nginx-$distro
 done
