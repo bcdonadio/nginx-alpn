@@ -1,14 +1,16 @@
 #!/bin/bash
+source common.sh
 
-REPO="nginx-alpn/mainline"
-
-fileList="$( find RPMS/ -type f -iname "*.rpm" )"
+fileList="$( find "$HOST_OBJDIR" -type f -iname '*.rpm' )"
 
 for file in $fileList; do
+    fileName="$( basename "$file" )"
+    distVersion="$( echo "$fileName" | grep -Po ".*${DIST}\K([0-9])" )"
+
+    # Only push correctly signed packages
     rpm -K "$file"
     if [ $? -eq 0 ]; then
-        el="$( echo "$file" | grep -Po '.*el\K([0-9])' )"
-        package_cloud push $REPO/el/$el "$file"
+        package_cloud push "$REPO/$DIST/$distVersion" "$file" || true
     fi
 done
 

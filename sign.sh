@@ -1,4 +1,5 @@
 #!/bin/bash
+source common.sh
 
-find RPMS/ -type f -iname "*.rpm" -exec rpmsign --addsign "{}" \;
+find "$HOST_OBJDIR" -type f -iname "*.rpm" -exec rpmsign --addsign "{}" \;
 

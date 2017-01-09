@@ -1,19 +1,28 @@
-#!
+#!/bin/bash
+source common.sh
 
-set -e
-BUILDS="el7 el6"
+for build in $builds; do
+    dockerName="$namespace--$build"
+    docker build -t $dockerName \
+        -f "$HOST_RECIPEDIR/$build.dockerfile" .
 
-for distro in $BUILDS; do
-    docker build -t nginx-$distro -f Dockerfile-$distro .
-    docker rm -f nginx-$distro || true 2>/dev/null
+    # Docker needs for the container to be running in order to copy things from
+    # the image itself
+    docker rm -f $dockerName &>/dev/null || true # Remove old instance
     docker run \
         -d \
-        --name nginx-$distro \
-        nginx-$distro \
+        --name $dockerName \
+        $dockerName \
         /bin/bash \
         /docker-entrypoint.sh
-    sleep 2
-    docker cp nginx-$distro:/home/builder/rpmbuild/RPMS ./
-    docker kill nginx-$distro
+
+    # Contents will be merged with previous builds
+    mkdir -p "$HOST_OBJDIR/RPMS"
+    docker cp "$dockerName:$DOCKER_OBJPREFIX/RPMS" "$HOST_OBJDIR/"
+    mkdir -p "$HOST_OBJDIR/SRPMS"
+    docker cp "$dockerName:$DOCKER_OBJPREFIX/SRPMS" "$HOST_OBJDIR/"
+
+    # Delete the instance (not the image)
+    docker kill $dockerName
 done
 
