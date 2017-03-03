@@ -1,5 +1,8 @@
 # nginx with ALPN support for Enterprise Linux
 
+<a href="https://packagecloud.io/nginx-alpn/mainline"><img alt="Hosted repo for nginx-alpn RPMs | packagecloud" height="46" src="https://packagecloud.io/images/packagecloud-badge.png" width="158" /></a>
+<a href="https://github.com/bcdonadio/nginx-alpn"><img alt="Scripts for building nginx with ALPN for Enterprise Linux 6 and 7 | github" height="46" src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" /></a>
+
 This project contains a set of scripts and dockerfiles (recipes) to build, sign
 and push to PackageCloud.io a distribution of nginx with Application-Layer
 Protocol Negotiation support for RedHat Enterprise Linux and CentOS as a result
