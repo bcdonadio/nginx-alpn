@@ -2,7 +2,7 @@ FROM centos:6
 
 ENV EL="6" \
     OPENSSL="1.1.0e" \
-    NGINX="1.11.10" \
+    NGINX="1.11.11" \
     NREV="-1" \
     NJS="0.1.9-1"
 
