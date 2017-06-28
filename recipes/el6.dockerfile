@@ -1,10 +1,10 @@
 FROM centos:6
 
 ENV EL="6" \
-    OPENSSL="1.1.0e" \
-    NGINX="1.11.13" \
+    OPENSSL="1.1.0f" \
+    NGINX="1.13.2" \
     NREV="-1" \
-    NJS="0.1.10-1"
+    NJS="0.1.11-1"
 
 ENV PKGS="nginx-$NGINX$NREV.el$EL.ngx.src.rpm \
 nginx-module-geoip-$NGINX$NREV.el$EL.ngx.src.rpm \
