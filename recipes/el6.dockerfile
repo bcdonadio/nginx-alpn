@@ -2,9 +2,9 @@ FROM centos:6
 
 ENV EL="6" \
     OPENSSL="1.1.0f" \
-    NGINX="1.13.3" \
+    NGINX="1.13.4" \
     NREV="-1" \
-    NJS="0.1.11-1"
+    NJS="0.1.12-1"
 
 ENV PKGS="nginx-$NGINX$NREV.el$EL.ngx.src.rpm \
 nginx-module-geoip-$NGINX$NREV.el$EL.ngx.src.rpm \
