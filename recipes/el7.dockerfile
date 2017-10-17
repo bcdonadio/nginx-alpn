@@ -1,11 +1,11 @@
 FROM centos:7
 
 ENV EL="7" \
-    EL_SUB="" \
+    EL_SUB="_4" \
     OPENSSL="1.1.0f" \
-    NGINX="1.13.5" \
+    NGINX="1.13.6" \
     NREV="-1" \
-    NJS="0.1.13-1"
+    NJS="0.1.14-1"
 
 ENV PKGS="nginx-$NGINX$NREV.el${EL}${EL_SUB}.ngx.src.rpm \
 nginx-module-geoip-$NGINX$NREV.el${EL}${EL_SUB}.ngx.src.rpm \
@@ -18,7 +18,7 @@ RUN yum -y update &&\
     yum -y install epel-release &&\
     yum -y install wget openssl-devel libxml2-devel libxslt-devel gd-devel \
         perl-ExtUtils-Embed GeoIP-devel rpmdevtools gcc gcc-c++ make which \
-        pcre-devel libedit-devel
+        pcre-devel libedit-devel redhat-lsb-core
 
 RUN echo -e '#!/bin/bash\nwhile true; do sleep 1; done' \
     >/docker-entrypoint.sh &&\

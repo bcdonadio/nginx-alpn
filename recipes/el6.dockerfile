@@ -3,9 +3,9 @@ FROM centos:6
 ENV EL="6" \
     EL_SUB="" \
     OPENSSL="1.1.0f" \
-    NGINX="1.13.5" \
+    NGINX="1.13.6" \
     NREV="-1" \
-    NJS="0.1.13-1"
+    NJS="0.1.14-1"
 
 ENV PKGS="nginx-$NGINX$NREV.el${EL}${EL_SUB}.ngx.src.rpm \
 nginx-module-geoip-$NGINX$NREV.el${EL}${EL_SUB}.ngx.src.rpm \
