@@ -3,7 +3,7 @@ FROM centos:6
 ENV EL="6" \
     EL_SUB="" \
     OPENSSL="1.1.0g" \
-    NGINX="1.13.7" \
+    NGINX="1.13.8" \
     NREV="-1" \
     NJS="0.1.15-1"
 
