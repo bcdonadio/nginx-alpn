@@ -17,8 +17,8 @@ See the following blogpost for the installation procedure of my yum repository:
 https://bcdonadio.com/2016/nginx-alpn-el/
 
 ## Versions
-* nginx: 1.11.10
-* openssl: 1.1.0e
+* nginx: 1.15.0
+* openssl: 1.1.0h
 
 ## Supported distributions
 * RedHat Enterprise Linux (RHEL) 6
