@@ -3,7 +3,7 @@ FROM centos:7
 ENV EL="7" \
     EL_SUB="_4" \
     OPENSSL="1.1.0h" \
-    NGINX="1.15.1" \
+    NGINX="1.15.2" \
     NREV="-1" \
     NJS="0.2.2-1" \
     NGX_BROTLI="v0.1.2"
