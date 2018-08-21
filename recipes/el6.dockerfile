@@ -2,7 +2,7 @@ FROM centos:6
 
 ENV EL="6" \
     EL_SUB="" \
-    OPENSSL="1.1.1-pre8" \
+    OPENSSL="1.1.1-pre9" \
     NGINX="1.15.2" \
     NREV="-1" \
     NJS="0.2.2-1" \
@@ -47,7 +47,7 @@ RUN sed -i "/Epoch: .*/d" SPECS/*.spec &&\
     sed -i "s|--with-http_gzip_static_module|--with-http_gzip_static_module --add-module=../ngx_brotli|g" SPECS/nginx.spec &&\
     sed -i "/%setup -q/a tar zxf %{SOURCE100}" SPECS/nginx.spec &&\
     sed -i "/^Requires: openssl.*/d" SPECS/nginx.spec &&\
-    sed -i "s/%define main_release .*/%define main_release 2\%{\?dist}.ngx/g" SPECS/nginx.spec
+    sed -i "s/%define main_release .*/%define main_release 3\%{\?dist}.ngx/g" SPECS/nginx.spec
 RUN spectool -g -R SPECS/nginx.spec
 RUN rpmbuild -ba SPECS/nginx.spec && \
     mv SPECS/nginx.spec{,.done} && \
