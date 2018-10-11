@@ -3,10 +3,10 @@ FROM centos:7
 ENV EL="7" \
     EL_SUB="_4" \
     OPENSSL="1.1.1" \
-    NGINX="1.15.3" \
+    NGINX="1.15.5" \
     NREV="-1" \
-    NJS="0.2.2-1" \
-    NGX_BROTLI="v0.1.2"
+    NJS="0.2.4-1" \
+    NGX_BROTLI="8104036af9cff4b1d34f22d00ba857e2a93a243c"
 
 ENV PKGS="nginx-$NGINX$NREV.el${EL}${EL_SUB}.ngx.src.rpm \
 nginx-module-geoip-$NGINX$NREV.el${EL}${EL_SUB}.ngx.src.rpm \
@@ -47,7 +47,7 @@ RUN sed -i "/Epoch: .*/d" SPECS/*.spec &&\
     sed -i "s|--with-http_gzip_static_module|--with-http_gzip_static_module --add-module=../ngx_brotli|g" SPECS/nginx.spec &&\
     sed -i "/%setup -q/a tar zxf %{SOURCE100}" SPECS/nginx.spec &&\
     sed -i "/^Requires: openssl.*/d" SPECS/nginx.spec &&\
-    sed -i "s/%define main_release .*/%define main_release 2\%{\?dist}.ngx/g" SPECS/nginx.spec
+    sed -i "s/%define main_release .*/%define main_release 1\%{\?dist}.ngx/g" SPECS/nginx.spec
 RUN spectool -g -R SPECS/nginx.spec
 RUN rpmbuild -ba SPECS/nginx.spec && \
     mv SPECS/nginx.spec{,.done} && \
