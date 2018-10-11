@@ -199,7 +199,7 @@ main ()
   fi
 
   sed -i 's/^gpgcheck=0/gpgcheck=1/g' $yum_repo_path
-  sed -i '/^gpgkey=.*/a \ https:\/\/bcdonadio.com\/gpg' $yum_repo_path
+  sed -i '/^gpgkey=.*/a \ https:\/\/bcdonadio.com\/gpgrpm' $yum_repo_path
 
   if [ "${os}" = "sles" ] || [ "${os}" = "opensuse" ]; then
     finalize_zypper_repo
