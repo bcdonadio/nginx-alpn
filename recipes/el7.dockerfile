@@ -3,9 +3,9 @@ FROM centos:7
 ENV EL="7" \
     EL_SUB="_4" \
     OPENSSL="1.1.1a" \
-    NGINX="1.15.7" \
+    NGINX="1.15.8" \
     NREV="-1" \
-    NJS="0.2.6-1" \
+    NJS="0.2.7-1" \
     NGX_BROTLI="8104036af9cff4b1d34f22d00ba857e2a93a243c"
 
 ENV PKGS="nginx-$NGINX$NREV.el${EL}${EL_SUB}.ngx.src.rpm \
