@@ -16,7 +16,6 @@ nginx-module-perl-$NGINX$NREV.el${EL}${EL_SUB}.ngx.src.rpm \
 nginx-module-xslt-$NGINX$NREV.el${EL}${EL_SUB}.ngx.src.rpm"
 
 RUN yum clean all &&\
-    yum -y update &&\
     yum -y install epel-release &&\
     yum -y install wget openssl-devel libxml2-devel libxslt-devel gd-devel \
         perl-ExtUtils-Embed GeoIP-devel rpmdevtools gcc gcc-c++ make which \
