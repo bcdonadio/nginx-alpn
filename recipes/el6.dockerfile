@@ -2,10 +2,10 @@ FROM centos:6
 
 ENV EL="6" \
     EL_SUB="" \
-    OPENSSL="1.1.1a" \
-    NGINX="1.15.8" \
+    OPENSSL="1.1.1c" \
+    NGINX="1.17.0" \
     NREV="-1" \
-    NJS="0.2.7-1" \
+    NJS="0.3.2-1" \
     NGX_BROTLI="8104036af9cff4b1d34f22d00ba857e2a93a243c"
 
 ENV PKGS="nginx-$NGINX$NREV.el${EL}${EL_SUB}.ngx.src.rpm \
